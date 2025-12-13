@@ -1,8 +1,12 @@
-Title
+Machine Learning Based Classification of Compressible Flow Regimes and Shock Structures in Converging-Diverging Nozzles
 Jolie Dolan
 
-o Brief descripJon and objecJve
-o Dataset(s) used
-o Model/method overview
-o InstrucJons to run the code
-o Summary of results and key findings
+This project investigates whether machine learning (ML) models can provide a fast, low-cost alternative for classifying nozzle flow regimes and identifying shock-related features using readily available geometric and pressure-based inputs.
+
+A CFD-generated dataset obtained from Kaggle was used for this study. The dataset includes nozzle geometry parameters such as inlet, throat, and exit diameters, convergence and divergence lengths, inlet pressure, and exit velocity.
+
+Decision trees were tested first due to their interpretability. Random forest classifiers were then used to improve generalization by averaging multiple trees. The random forest classifier was implemented as an ensemble extension of the decision tree model. By training multiple trees on bootstrapped subsets of the data and randomly sampling feature subsets at each split, the model reduces variance while preserving nonlinear decision boundaries. The number of trees, maximum tree depth, and minimum samples per split were treated as tunable hyperparameters. Random forest training was parallelized to improve computational efficiency. Importantly, feature importance metrics derived from the ensemble were retained for post hoc analysis, enabling comparison between data-driven importance rankings and established physical intuition. Rather than applying aggressive resampling techniques, which risk distorting physical relationships, model performance was evaluated using class-specific metrics such as precision, recall, and F1 score.
+
+All code can be run by installing the required imports in the requirements.txt document and then downloading and running the code in the notebooks folder.
+
+This project demonstrates that machine learning models, particularly tree-based ensemble methods, can successfully classify nozzle flow regimes and shock-related features when guided by physically informed input features. While the high accuracies observed are partly attributable to the deterministic nature of CFD-generated data, the results highlight the potential of ML as a rapid screening and educational tool. Future work will focus on expanding the dataset, incorporating experimental uncertainty, and refining shock location predictions to improve real-world applicability.
