@@ -1,4 +1,9 @@
 """
 requirement for code
 any imports needed, etc
+
+Numpy
+Pandas
+sci-kit learn
+PyTorch
 """
